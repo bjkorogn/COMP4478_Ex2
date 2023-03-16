@@ -16,10 +16,10 @@ public class ItemSpawner : MonoBehaviour
         x1 = transform.position.x - collider.bounds.size.x / 2f;
         x2 = transform.position.x + collider.bounds.size.x / 2f;
 
-        StartCoroutine(SpawnFish(1f));
+        StartCoroutine(SpawnItem(1f));
     }
 
-    IEnumerator SpawnFish(float time) {
+    IEnumerator SpawnItem(float time) {
         yield return new WaitForSecondsRealtime(time);
 
         Vector2 tempPos = transform.position;
@@ -36,6 +36,6 @@ public class ItemSpawner : MonoBehaviour
             Instantiate(bomb, tempPos, Quaternion.identity);
         }
         
-        StartCoroutine(SpawnFish(Random.Range(0.5f, 2f)));
+        StartCoroutine(SpawnItem(Random.Range(0.5f, 2f)));
     }
 }
